@@ -3549,12 +3549,6 @@ async def check_force_join(update, context):
         "জয়েন করার পর নিচে <b>Verify</b> বাটনে চাপ দিন।</blockquote>"
     )
 
-    if update.callback_query:
-        await update.callback_query.message.reply_text(text, parse_mode="HTML", reply_markup=btn)
-    else:
-        await update.message.reply_text(text, parse_mode="HTML", reply_markup=btn)
-
-    return False
 async def verify_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
