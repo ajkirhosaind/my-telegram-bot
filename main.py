@@ -3559,14 +3559,20 @@ async def verify_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
 
-    is_joined = await check_force_join(update, context)
+    user_id = query.from_user.id
+    channel = "@facebookinstagramathord"
 
-    if is_joined:
-        await query.message.delete()
-        await query.message.reply_text("✅ ভেরিফিকেশন সফল হয়েছে!")
-        await start(update, context)
-    else:
-        await query.answer("⚠️ আপনি এখনো আমাদের চ্যানেলে জয়েন করেননি! আগে জয়েন করুন।", show_alert=True)
+    try:
+        member = await context.bot.get_chat_member(chat_id=channel, user_id=user_id)
+        if member.status in ("member", "administrator", "creator"):
+            await query.message.delete()
+            await query.message.reply_text("✅ ভেরিফিকেশন সফল হয়েছে!")
+            await start(update, context)
+        else:
+            await query.answer("⚠️ আপনি এখনো আমাদের চ্যানেলে জয়েন করেননি! আগে জয়েন করুন।", show_alert=True)
+    except Exception as e:
+        print(f"Verify Error: {e}")
+        await query.answer("⚠️ একটি সমস্যা হয়েছে, দয়া করে আবার চেষ্টা করুন।", show_alert=True)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not await check_force_join(update, context):
