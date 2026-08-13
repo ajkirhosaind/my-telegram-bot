@@ -3926,12 +3926,6 @@ async def post_shutdown(application):
     await client_async.aclose()
 
 def main():
-    if not BOT_TOKEN or BOT_TOKEN == "PASTE_NEW_TELEGRAM_BOT_TOKEN_HERE":
-        raise RuntimeError(
-            "BOT_TOKEN is not configured. Open bot.py and replace "
-            "PASTE_NEW_TELEGRAM_BOT_TOKEN_HERE with your new token."
-        )
-
     app = (
         ApplicationBuilder()
         .token(BOT_TOKEN)
@@ -3942,14 +3936,13 @@ def main():
     )
 
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("get1number", get1number_command))
+    app.add_handler(CommandHandler("getNumber", getNumber_command))
     app.add_handler(CommandHandler("searchotp", searchotp_command))
     app.add_handler(CommandHandler("balance", balance_command))
     app.add_handler(CommandHandler("profile", profile_command))
     app.add_handler(CommandHandler("refer", refer_command_slash))
     app.add_handler(CommandHandler("leaderboard", leaderboard_command_slash))
     app.add_handler(CallbackQueryHandler(verify_callback, pattern="^check_join$"))
-
     app.add_handler(CallbackQueryHandler(button_callback))
     app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
 
