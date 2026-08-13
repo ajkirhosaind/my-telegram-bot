@@ -3532,9 +3532,11 @@ async def check_force_join(update, context):
         print(f"---> USER STATUS: {member.status}")  # CMD টার্মিনালে স্ট্যাটাস প্রিন্ট করবে
         if member.status in ("member", "administrator", "creator"):
             return True
+        else:
+            return False    
     except Exception as e:
         print(f"---> TELEGRAM ERROR: {e}")
-
+        return False
     channel_clean = channel.lstrip("@")
     invite_url = f"https://t.me/{channel_clean}"
 
