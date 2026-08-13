@@ -3936,7 +3936,6 @@ def main():
     )
 
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("getNumber", getNumber_command))
     app.add_handler(CommandHandler("getNumber", get1number_command))
     app.add_handler(CommandHandler("balance", balance_command))
     app.add_handler(CommandHandler("profile", profile_command))
