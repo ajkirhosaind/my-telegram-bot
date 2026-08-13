@@ -3940,19 +3940,18 @@ def main():
         .post_shutdown(post_shutdown)
         .build()
     )
-
     app.add_handler(CommandHandler("start", start))
-    app.add_handler(CommandHandler("getNumber", get1number_command))
     app.add_handler(CommandHandler("balance", balance_command))
     app.add_handler(CommandHandler("profile", profile_command))
     app.add_handler(CommandHandler("refer", refer_command_slash))
     app.add_handler(CommandHandler("leaderboard", leaderboard_command_slash))
-    app.add_handler(CallbackQueryHandler(verify_callback))
+    app.add_handler(CallbackQueryHandler(verify_callback, pattern="^check_join$"))
     app.add_handler(CallbackQueryHandler(button_callback))
     app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
 
-    print("🚀 BOT RUNNING...")
+    print("🤖 BOT RUNNING...")
     app.run_polling(allowed_updates=Update.ALL_TYPES, drop_pending_updates=True)
+    
 
 if __name__ == "__main__":
     main()
