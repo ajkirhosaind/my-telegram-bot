@@ -3524,7 +3524,7 @@ async def leaderboard_command_slash(update: Update, context: ContextTypes.DEFAUL
 # ==================== START & CALLBACK SECTION ====================
 
 async def check_force_join(update, context):
-    channel = "facebookinstagrammathord"
+    channel = "@facebookinstagrammathord"
     uid = update.effective_user.id
 
     try:
