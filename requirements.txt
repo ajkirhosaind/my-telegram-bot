@@ -1,2 +1,3 @@
 httpx[http2]
 pytelegrambotapi
+python-telegram-bot
