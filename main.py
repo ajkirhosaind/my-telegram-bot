@@ -3942,7 +3942,7 @@ def main():
     app.add_handler(CommandHandler("profile", profile_command))
     app.add_handler(CommandHandler("refer", refer_command_slash))
     app.add_handler(CommandHandler("leaderboard", leaderboard_command_slash))
-    app.add_handler(CallbackQueryHandler(verify_callback, pattern="^check_join$"))
+    app.add_handler(CallbackQueryHandler(verify_callback))
     app.add_handler(CallbackQueryHandler(button_callback))
     app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
 
