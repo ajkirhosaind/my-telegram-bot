@@ -3569,11 +3569,15 @@ async def verify_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.answer("⚠️ একটি সমস্যা হয়েছে, দয়া করে আবার চেষ্টা করুন।", show_alert=True)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    if not await check_force_join(update, context):
-        return
-    
+    if not await check_force_join(update, context): return
     uid = update.effective_user.id
     uid_str = str(uid)
+
+    existing_data = load_data(USER_DATA_FILE)
+    is_new_user = uid_str not in existing_data
+    if is_new_user:
+        get_user(uid)
+
 
     args = context.args
     if args:
