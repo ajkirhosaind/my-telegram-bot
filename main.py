@@ -3524,7 +3524,7 @@ async def leaderboard_command_slash(update: Update, context: ContextTypes.DEFAUL
 # ==================== START & CALLBACK SECTION ====================
 
 async def check_force_join(update, context):
-    channel = "facebookinstagrammathord"
+    channel = "@facebookinstagrammathord"
     uid = update.effective_user.id
 
     try:
@@ -3532,11 +3532,9 @@ async def check_force_join(update, context):
         print(f"---> USER STATUS: {member.status}")  # CMD টার্মিনালে স্ট্যাটাস প্রিন্ট করবে
         if member.status in ("member", "administrator", "creator"):
             return True
-        else:
-            return False    
     except Exception as e:
         print(f"---> TELEGRAM ERROR: {e}")
-        return False
+
     channel_clean = channel.lstrip("@")
     invite_url = f"https://t.me/{channel_clean}"
 
@@ -3551,24 +3549,23 @@ async def check_force_join(update, context):
         "জয়েন করার পর নিচে <b>Verify</b> বাটনে চাপ দিন।</blockquote>"
     )
 
+    if update.callback_query:
+        await update.callback_query.message.reply_text(text, parse_mode="HTML", reply_markup=btn)
+    else:
+        await update.message.reply_text(text, parse_mode="HTML", reply_markup=btn)
+
+    return False
 async def verify_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
-
-    user_id = query.from_user.id
-    channel = "@facebookinstagramathord"
-
-    try:
-        member = await context.bot.get_chat_member(chat_id=channel, user_id=user_id)
-        if member.status in ("member", "administrator", "creator"):
-            await query.message.delete()
-            await query.message.reply_text("✅ ভেরিফিকেশন সফল হয়েছে!")
-            await start(update, context)
-        else:
-            await query.answer("⚠️ আপনি এখনো আমাদের চ্যানেলে জয়েন করেননি! আগে জয়েন করুন।", show_alert=True)
-    except Exception as e:
-        print(f"Verify Error: {e}")
-        await query.answer("⚠️ একটি সমস্যা হয়েছে, দয়া করে আবার চেষ্টা করুন।", show_alert=True)
+    
+    is_joined = await check_force_join(update, context)
+    
+    if is_joined:
+        await query.message.delete()
+        await query.message.reply_text("🎉 ভেরিফিকেশন সফল হয়েছে! এখন আবার /start চাপুন।")
+    else:
+        await query.answer("⚠️ আপনি এখনো জয়েন করেননি! আগে জয়েন করুন।", show_alert=True)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not await check_force_join(update, context): return
@@ -3579,7 +3576,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     is_new_user = uid_str not in existing_data
     if is_new_user:
         get_user(uid)
-
 
     args = context.args
     if args:
@@ -3932,6 +3928,12 @@ async def post_shutdown(application):
     await client_async.aclose()
 
 def main():
+    if not BOT_TOKEN or BOT_TOKEN == "PASTE_NEW_TELEGRAM_BOT_TOKEN_HERE":
+        raise RuntimeError(
+            "BOT_TOKEN is not configured. Open bot.py and replace "
+            "PASTE_NEW_TELEGRAM_BOT_TOKEN_HERE with your new token."
+        )
+
     app = (
         ApplicationBuilder()
         .token(BOT_TOKEN)
@@ -3940,18 +3942,21 @@ def main():
         .post_shutdown(post_shutdown)
         .build()
     )
+
     app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("get1number", get1number_command))
+    app.add_handler(CommandHandler("searchotp", searchotp_command))
     app.add_handler(CommandHandler("balance", balance_command))
     app.add_handler(CommandHandler("profile", profile_command))
     app.add_handler(CommandHandler("refer", refer_command_slash))
     app.add_handler(CommandHandler("leaderboard", leaderboard_command_slash))
     app.add_handler(CallbackQueryHandler(verify_callback, pattern="^check_join$"))
+
     app.add_handler(CallbackQueryHandler(button_callback))
     app.add_handler(MessageHandler(filters.TEXT & (~filters.COMMAND), handle_message))
 
-    print("🤖 BOT RUNNING...")
+    print("🚀 BOT RUNNING...")
     app.run_polling(allowed_updates=Update.ALL_TYPES, drop_pending_updates=True)
-    
 
 if __name__ == "__main__":
     main()
