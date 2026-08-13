@@ -1,0 +1,33 @@
+{
+    "active_panel": "zenex",
+    "zenex_api_key": "ZNX_0L6V54ZNXOBN0I7LYN9IRV8M",
+    "zenex_base_url": "https://api.zenexnetwork.com",
+    "panel_url": "https://t.me/Zenex_Number_bot?start=6920894613",
+    "allowed_services": [
+        "Instagram",
+        "Facebook",
+        "WhatsApp",
+        "TikTok",
+        "Telegram",
+        "Discord",
+        "PayPal",
+        "Imo"
+    ],
+    "otp_group_url": "https://t.me/IncomeInsightbdotp",
+    "channel_url": "https://t.me/MinoXofficial0",
+    "support_username": "@support",
+    "maintenance_mode": false,
+    "cooldown_time": 1.0,
+    "min_withdraw": 50.0,
+    "otp_bonus": 0.2,
+    "referral_bonus": 0.0,
+    "admins": [
+        6920894613
+    ],
+    "owners": [
+        6920894613
+    ],
+    "otp_group_chat_id": null,
+    "force_join_channel": null,
+    "manual_services": []
+}

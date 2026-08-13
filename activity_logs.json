@@ -1,0 +1,182 @@
+[
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T18:27:45.164501",
+        "date": "12/08/2026",
+        "time": "18:27:45"
+    },
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T18:28:51.469946",
+        "date": "12/08/2026",
+        "time": "18:28:51"
+    },
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T19:03:15.475892",
+        "date": "12/08/2026",
+        "time": "19:03:15"
+    },
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T19:13:51.589505",
+        "date": "12/08/2026",
+        "time": "19:13:51"
+    },
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T19:16:16.884895",
+        "date": "12/08/2026",
+        "time": "19:16:16"
+    },
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T20:20:33.543257",
+        "date": "12/08/2026",
+        "time": "20:20:33"
+    },
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T20:28:36.524516",
+        "date": "12/08/2026",
+        "time": "20:28:36"
+    },
+    {
+        "uid": "6320206405",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T20:45:58.154601",
+        "date": "12/08/2026",
+        "time": "20:45:58"
+    },
+    {
+        "uid": "6320206405",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T20:46:00.857102",
+        "date": "12/08/2026",
+        "time": "20:46:00"
+    },
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T20:50:55.726688",
+        "date": "12/08/2026",
+        "time": "20:50:55"
+    },
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T20:53:42.688751",
+        "date": "12/08/2026",
+        "time": "20:53:42"
+    },
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T21:07:23.171900",
+        "date": "12/08/2026",
+        "time": "21:07:23"
+    },
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T21:08:15.998915",
+        "date": "12/08/2026",
+        "time": "21:08:15"
+    },
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T21:10:06.544219",
+        "date": "12/08/2026",
+        "time": "21:10:06"
+    },
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T21:22:47.040030",
+        "date": "12/08/2026",
+        "time": "21:22:47"
+    },
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-12T21:23:58.545624",
+        "date": "12/08/2026",
+        "time": "21:23:58"
+    },
+    {
+        "uid": "6920894613",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-13T00:05:50.616053",
+        "date": "13/08/2026",
+        "time": "00:05:50"
+    },
+    {
+        "uid": "6622612816",
+        "action": "NUMBER_TAKEN",
+        "details": {
+            "count": 1
+        },
+        "timestamp": "2026-08-13T00:47:06.665481",
+        "date": "13/08/2026",
+        "time": "00:47:06"
+    }
+]
