@@ -3558,28 +3558,22 @@ async def check_force_join(update, context):
 async def verify_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
-    
+
     is_joined = await check_force_join(update, context)
-    
+
     if is_joined:
         await query.message.delete()
-        await query.message.reply_text("🎉 ভেরিফিকেশন সফল হয়েছে! এখন আবার /start চাপুন।")
+        await query.message.reply_text("✅ ভেরিফিকেশন সফল হয়েছে!")
+        await start(update, context)
     else:
-        await query.answer("⚠️ আপনি এখনো জয়েন করেননি! আগে জয়েন করুন।", show_alert=True)
+        await query.answer("⚠️ আপনি এখনো আমাদের চ্যানেলে জয়েন করেননি! আগে জয়েন করুন।", show_alert=True)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    # যদি চ্যানেলে জয়েন করা না থাকে, তবে check_force_join নিজেই বাটন ও মেসেজ পাঠিয়ে দেবে এবং এখান থেকে থেমে যাবে
-    if not await check_force_join(update, context): 
+    if not await check_force_join(update, context):
         return
     
-    # এর পরের কোডগুলো আগের মতোই থাকবে...
     uid = update.effective_user.id
     uid_str = str(uid)
-    # ...
-    existing_data = load_data(USER_DATA_FILE)
-    is_new_user = uid_str not in existing_data
-    if is_new_user:
-        get_user(uid)
 
     args = context.args
     if args:
